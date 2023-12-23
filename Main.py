@@ -1,11 +1,6 @@
-from Genetic import Genetic
-from Genetic.Enums import CrossOverTypes
-import matplotlib.pyplot as plt
+from Boot import Boot
 
 
-x = Genetic(10, 10, 0.1, 500, CrossOverTypes.TwoPoint)
-(best, bests) = x.start_loop()
-print(f"best : {best.gens}, conflicts: {best.intersects()}")
+Boot()
 
-plt.plot(bests)
-plt.show()
+
