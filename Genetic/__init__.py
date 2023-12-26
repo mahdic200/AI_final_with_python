@@ -134,13 +134,32 @@ class Genetic:
         return (Chromosome(new_child_1), Chromosome(new_child_2))
 
     # completed
+    def uniform_crossover(self, parent_1: Chromosome, parent_2: Chromosome) -> (Chromosome, Chromosome):
+        parent_1 = parent_1.gens
+        parent_2 = parent_2.gens
+
+        new_child_1 = []
+        new_child_2 = []
+        for i in range(len(parent_1)):
+            rn = random.randint(1, 2)
+            if rn == 1:
+                new_child_1.append(parent_1[i])
+                new_child_2.append(parent_2[i])
+            else:
+                new_child_1.append(parent_2[i])
+                new_child_2.append(parent_1[i])
+
+
+        return (Chromosome(new_child_1), Chromosome(new_child_2))
+
+    # completed
     def crossover(self, parent_1: Chromosome, parent_2: Chromosome) -> (Chromosome, Chromosome):
         if self.crossover_type == CrossOverTypes.OnePoint:
             return self.one_point_crossover(parent_1, parent_2)
         elif self.crossover_type == CrossOverTypes.TwoPoint:
             return self.two_point_crossover(parent_1, parent_2)
         elif self.crossover_type == CrossOverTypes.Uniform:
-            return self.two_point_crossover(parent_1, parent_2)
+            return self.uniform_crossover(parent_1, parent_2)
         else:
             raise Exception("no invalid crossover type is chosen for Genetic class !")
 
