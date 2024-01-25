@@ -58,8 +58,7 @@ class Boot:
         
         
         x = Genetic(10, 10, per_mutation, maxiter, crossover_type)
-        (best, bests) = x.start_loop()
-        print(f"best : {best.gens}, conflicts: {best.intersects()}")
+        (bests) = x.start_loop()
 
         plt.plot(bests)
         plt.show()

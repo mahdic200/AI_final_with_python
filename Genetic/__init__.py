@@ -214,4 +214,8 @@ class Genetic:
             best_fitnesses.append(new_best.fitness)
             if best.fitness < new_best.fitness:
                 best = new_best
-        return (best, best_fitnesses)
+            if i == len(self.population) - 1:
+                print("final population: ")
+                for chromosome in self.population:
+                    print(chromosome.gens, " , fitness : ", chromosome.fitness)
+        return (best_fitnesses)
